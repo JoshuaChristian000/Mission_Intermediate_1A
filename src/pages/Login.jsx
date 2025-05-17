@@ -1,8 +1,13 @@
 import React from 'react'
+import { useState } from 'react';
 import NavbarStart from '../components/NavbarStart'
 import Buttons from '../components/Buttons'
 
-const login = () => {
+const Login = () => {
+
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
   return (
     <>
         <NavbarStart />
@@ -13,11 +18,11 @@ const login = () => {
                 <p className="justify-center text-center text-sm text-gray-500">Yuk, lanjutin belajarmu di videobelajar</p>
                 
                 <label className="fieldset-label">E-mail<span className="text-red-500">*</span></label>
-                <input type="email" className="input w-full" placeholder="Email" />
+                <input type="email" className="input w-full" placeholder="Email" name='email' value={email} onChange={e => setEmail(e.target.value)}/>
 
 
                 <label className="fieldset-label">Kata Sandi<span className="text-red-500">*</span></label>
-                <input type="password" className="input w-full" placeholder="Password" />
+                <input type="password" className="input w-full" placeholder="Password" name='password' value={password} onChange={e => setPassword(e.target.value)}/>
                 
                 <a href="" className="flex justify-end text-gray-500 text-xs">Lupa Password?</a>
                 
@@ -42,4 +47,4 @@ const login = () => {
   )
 }
 
-export default login
+export default Login

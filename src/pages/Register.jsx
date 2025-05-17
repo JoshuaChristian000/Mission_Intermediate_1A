@@ -1,8 +1,16 @@
 import React from 'react'
+import { useState } from 'react';
 import NavbarStart from '../components/NavbarStart'
 import Buttons from '../components/Buttons'
 
 const Register = () => {
+
+const [fullName, setFullName] = useState("");
+const [email, setEmail] = useState("");
+const [phoneNumber, setPhoneNumber] = useState("+62");
+const [password, setPassword] = useState("");
+const [confirmPassword, setConfirmPassword] = useState("");
+
   return (
     <>
         <NavbarStart />
@@ -12,9 +20,9 @@ const Register = () => {
                 <h2 className="card-title flex justify-center text-center text-4xl">Pendaftaran Akun</h2>
                 <p className="justify-center text-center text-sm text-gray-500">Yuk, daftarkan akunmu sekarang juga!</p>
                 <label className="fieldset-label">Nama Lengkap<span className="text-red-500">*</span></label>
-                <input type="text" className="input w-full" placeholder="Nama Lengkap" />
+                <input type="text" className="input w-full" placeholder="Nama Lengkap" name='fullName' value={fullName} onChange={e => setFullName(e.target.value)}/>
                 <label className="fieldset-label">E-mail<span className="text-red-500">*</span></label>
-                <input type="email" className="input w-full" placeholder="Email" />
+                <input type="email" className="input w-full" placeholder="Email" name='email' value={email} onChange={e => setEmail(e.target.value)}/>
 
                 <label className="fieldset-label">No. Hp<span className="text-red-500">*</span></label>
                 <div className="flex items-center gap-4">
@@ -24,14 +32,14 @@ const Register = () => {
                         <option>+61</option>
                         <option>+80</option>
                     </select>
-                    <input type="text" className="input border p-2 rounded w-full" placeholder="812345678" />
+                    <input type="text" className="input border p-2 rounded w-full" placeholder="812345678" name='phoneNumber' value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)}/>
                 </div>
 
                 <label className="fieldset-label">Kata Sandi<span className="text-red-500">*</span></label>
-                <input type="password" className="input w-full" placeholder="Password" />
+                <input type="password" className="input w-full" placeholder="Password" name='password' value={password} onChange={e => setPassword(e.target.value)}/>
                 
                 <label className="fieldset-label">Konfirmasi Kata Sandi<span className="text-red-500">*</span></label>
-                <input type="password" className="input w-full" placeholder="Password" />
+                <input type="password" className="input w-full" placeholder="Password" name='confirmPassword' value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)}/>
 
                 <a href="" className="flex justify-end text-gray-500 text-xs">Lupa Password?</a>
                 
